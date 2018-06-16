@@ -8,8 +8,11 @@
 
     <div style="text-align: center">
         <form action="/" method="post">
-            <input th:text>
+            <input type="text" th:name="city" placeholder="Czego szukasz">
+            <input type="submit" value="Wyślij">
         </form>
+
+        <p th:text="${weatherInfo}"></p>
     </div>
 </body>
 </html>

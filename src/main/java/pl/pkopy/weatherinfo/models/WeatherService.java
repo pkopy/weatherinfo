@@ -9,6 +9,8 @@ import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 public class WeatherService {
 
@@ -24,9 +26,11 @@ public class WeatherService {
         HttpEntity entity = new HttpEntity(httpHeaders);
         httpHeaders.add("key",apiKey);
 
-        Weather response = restTemplate.getForObject("http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apiKey , Weather.class);
+        Weather response = restTemplate. ("http://api.openweathermap.org/data/2.5/forecast?q="+city+"&mode=json&appid="+apiKey, Weather.class);
 
         System.out.println(response);
+
         return response;
+
     }
 }

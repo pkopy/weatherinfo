@@ -26,10 +26,12 @@ public class Main {
     @PostMapping("/")
     public String index(@RequestParam ("city") String city,
                         Model model){
-        model.addAttribute("weatherInfo", weatherService.makeCall(city));
+//        model.addAttribute("weatherInfo", );
 
-
-        return "index";
+        Weather weater = weatherService.makeCall("radom");
+        StringBuilder tekst = new StringBuilder();
+        tekst.append(weater.getClouds());
+        return tekst.toString();
     }
 
 
